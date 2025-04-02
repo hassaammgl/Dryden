@@ -1,0 +1,102 @@
+// Define font variables
+$font-boldonse: "Boldonse", system-ui;
+$font-bodoni-moda: "Bodoni Moda", serif;
+$font-gravitas-one: "Gravitas One", serif;
+$font-dancing-script: "Dancing Script", cursive;
+$font-lobster: "Lobster", sans-serif;
+$font-playfair-display: "Playfair Display", serif;
+
+// Apply font styles using variables
+
+// .boldonse-regular {
+//   font-family: $font-boldonse;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// // Example usage with a unique class name and weight
+// .bodoni-moda-bold {
+//   font-family: $font-bodoni-moda;
+//   font-optical-sizing: auto;
+//   font-weight: 700;
+//   font-style: normal;
+// }
+
+// .gravitas-one-regular {
+//   font-family: $font-gravitas-one;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// .dancing-script-regular {
+//   font-family: $font-dancing-script;
+//   font-optical-sizing: auto;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// .lobster-regular {
+//   font-family: $font-lobster;
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// // Example usage with a unique class name and weight
+// .playfair-display-semibold {
+//   font-family: $font-playfair-display;
+//   font-optical-sizing: auto;
+//   font-weight: 600;
+//   font-style: normal;
+// }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
+#nav {
+	background: transparent;
+	backdrop-filter: blur(13px);
+	height: 4rem;
+	color: antiquewhite;
+	display: flex;
+	justify-content: space-between;
+	padding: 0.4rem;
+	align-items: center;
+
+	> h1 {
+		>a {
+			all: unset;
+			font-family: $font-playfair-display;
+			color: antiquewhite;
+		}
+	}
+	> #menubtn {
+		all: unset;
+		transition: transform 0.3s ease; // Add a transition property
+
+		&:hover {
+			transform: scale(1.1); // Scale up on hover
+		}
+	}
+}
+
+#main {
+	position: relative;
+	overflow: hidden;
+}
+
+#page {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background-color: #000000;
+}
