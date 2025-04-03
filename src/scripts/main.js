@@ -1,16 +1,20 @@
 // styles
 import '../styles/style.scss'
 
-
 // scripts
 import { imgs } from "./imgs"
 import gsap from "gsap";
 import { menuButton } from './menu'
 
 function valueSetters() {
-    gsap.set("#menu", { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" })
-    gsap.set("#link .parent .child", { y: "100%", opacity: 0 })
-    // gsap.set("#home .row img", { opacity: 0 })
+    gsap.set("#menu", {
+        clipPath: "circle(0.3% at 100% 0)"
+    })
+    gsap.set("#link .parent .child", {
+        y: "100%",
+        opacity: 0,
+        color: "black",
+    })
 }
 
 function revealToSpan() {
