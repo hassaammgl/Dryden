@@ -100,23 +100,3 @@ export const imgs = () => {
     preloadedImages()
 
 }
-
-// function animateFirstPage() {
-//     const tl = gsap.timeline({
-//         scrollTrigger: {
-//             trigger: "#page",
-//             start: "top top",
-//             scrub: 2,
-//             pin: true,
-//         },
-//     });
-
-//     tl.to(frames, {
-//         currentIndex: frames.maxIndex,
-//         snap: "currentIndex",
-//         duration: 1,
-//         onUpdate: () => {
-//             loadImages(Math.floor(frames.currentIndex));
-//         },
-//     });
-// }
