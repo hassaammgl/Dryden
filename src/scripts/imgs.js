@@ -10,6 +10,17 @@ const images = [];
 function loadImages(index) {
     if (index >= 0 && index <= frames.maxIndex) {
         const img = images[index];
+        console.log(canvas);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const scaleX = canvas.width / img.width;
+        const scaleY = canvas.height / img.height;
+
+        const scale = Math.max(scaleX, scaleY)
+
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     }
 }
@@ -22,7 +33,6 @@ function preloadedImages() {
         img.src = imgUrl;
         img.onload = () => {
             imagesLoaded++;
-            console.log(`Image ${i} loaded`);
             if (imagesLoaded === frames.maxIndex) {
                 console.log("All images loaded successfully");
                 console.log(images);
