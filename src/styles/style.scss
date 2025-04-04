@@ -6,48 +6,54 @@ $font-dancing-script: "Dancing Script", cursive;
 $font-lobster: "Lobster", sans-serif;
 $font-playfair-display: "Playfair Display", serif;
 
-// Apply font styles using variables
+// Mixins for responsiveness
+@mixin for-tablet {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
 
-// .boldonse-regular {
-//   font-family: $font-boldonse;
-//   font-weight: 400;
-//   font-style: normal;
-// }
+@mixin for-mobile {
+	@media (max-width: 480px) {
+		@content;
+	}
+}
 
-// // Example usage with a unique class name and weight
-// .bodoni-moda-bold {
-//   font-family: $font-bodoni-moda;
-//   font-optical-sizing: auto;
-//   font-weight: 700;
-//   font-style: normal;
-// }
+// Mixin for font styles
+@mixin font-style($font-family, $font-weight, $font-style) {
+	font-family: $font-family;
+	font-weight: $font-weight;
+	font-style: $font-style;
+}
 
-// .gravitas-one-regular {
-//   font-family: $font-gravitas-one;
-//   font-weight: 400;
-//   font-style: normal;
-// }
+// Apply font styles using variables and mixins
 
-// .dancing-script-regular {
-//   font-family: $font-dancing-script;
-//   font-optical-sizing: auto;
-//   font-weight: 400;
-//   font-style: normal;
-// }
+.boldonse-regular {
+	@include font-style($font-boldonse, 400, normal);
+}
 
-// .lobster-regular {
-//   font-family: $font-lobster;
-//   font-weight: 400;
-//   font-style: normal;
-// }
+.bodoni-moda-bold {
+	@include font-style($font-bodoni-moda, 700, normal);
+	font-optical-sizing: auto;
+}
 
-// // Example usage with a unique class name and weight
-// .playfair-display-semibold {
-//   font-family: $font-playfair-display;
-//   font-optical-sizing: auto;
-//   font-weight: 600;
-//   font-style: normal;
-// }
+.gravitas-one-regular {
+	@include font-style($font-gravitas-one, 400, normal);
+}
+
+.dancing-script-regular {
+	@include font-style($font-dancing-script, 400, normal);
+	font-optical-sizing: auto;
+}
+
+.lobster-regular {
+	@include font-style($font-lobster, 400, normal);
+}
+
+.playfair-display-semibold {
+	@include font-style($font-playfair-display, 600, normal);
+	font-optical-sizing: auto;
+}
 
 * {
 	margin: 0;
@@ -119,6 +125,12 @@ body {
 		padding: 2rem;
 		justify-content: center;
 		align-items: center;
+
+		@include for-tablet {
+			gap: 1.5rem;
+			padding: 1rem;
+		}
+
 		> #link {
 			all: unset;
 			font-family: $font-playfair-display;
@@ -126,6 +138,10 @@ body {
 			font-size: 2rem;
 			text-decoration: none;
 			transition: all 0.3s ease;
+
+			@include for-tablet {
+				font-size: 1.5rem;
+			}
 
 			&:hover {
 				transform: scale(1.1);
@@ -169,6 +185,14 @@ body {
 		font-family: $font-playfair-display;
 		color: antiquewhite;
 		font-size: 5rem;
+
+		@include for-tablet {
+			font-size: 3rem;
+		}
+
+		@include for-mobile {
+			font-size: 2rem;
+		}
 	}
 }
 #page2 {
@@ -179,6 +203,14 @@ body {
 		font-family: $font-playfair-display;
 		color: antiquewhite;
 		font-size: 5rem;
+
+		@include for-tablet {
+			font-size: 3rem;
+		}
+
+		@include for-mobile {
+			font-size: 2rem;
+		}
 	}
 }
 #page3 {
@@ -189,6 +221,14 @@ body {
 		font-family: $font-playfair-display;
 		color: antiquewhite;
 		font-size: 5rem;
+
+		@include for-tablet {
+			font-size: 3rem;
+		}
+
+		@include for-mobile {
+			font-size: 2rem;
+		}
 	}
 }
 #page4 {
@@ -199,5 +239,13 @@ body {
 		font-family: $font-playfair-display;
 		color: antiquewhite;
 		font-size: 5rem;
+
+		@include for-tablet {
+			font-size: 3rem;
+		}
+
+		@include for-mobile {
+			font-size: 2rem;
+		}
 	}
 }
