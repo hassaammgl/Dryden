@@ -2,13 +2,15 @@
 import '../styles/style.scss'
 
 // scripts
-import { imgs } from "./imgs"
 import gsap from "gsap";
 import { menuButton } from './menu'
+import { imgs } from './imgs';
 
 function valueSetters() {
     gsap.set("#menu", {
-        clipPath: "circle(0.3% at 100% 0)"
+        clipPath: "circle(0.3% at 100% 0)",
+        display: "none",
+        opacity: 0,
     })
     gsap.set("#link .parent .child", {
         y: "100%",
@@ -44,6 +46,7 @@ function revealToSpan() {
 revealToSpan()
 valueSetters()
 menuButton()
+imgs()
 console.log(imgs);
 
 

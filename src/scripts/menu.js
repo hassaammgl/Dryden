@@ -28,6 +28,8 @@ export const menuButton = () => {
         duration: 1,
         ease: "power2.inOut",
         backgroundColor: "white",
+        opacity: 1,
+        display: "block",
     }).to("#link .parent .child", {
         y: "0%",
         opacity: 1,
