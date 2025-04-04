@@ -1,4 +1,10 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const canvas = document.querySelector("#canvas");
+
 const frames = {
     currentIndex: 0,
     maxIndex: 452,
@@ -8,6 +14,7 @@ let imagesLoaded = 0;
 const images = [];
 
 function loadImages(index) {
+    const ctx = canvas.getContext("2d");
     if (index >= 0 && index <= frames.maxIndex) {
         const img = images[index];
         console.log(canvas);
@@ -19,9 +26,19 @@ function loadImages(index) {
 
         const scale = Math.max(scaleX, scaleY)
 
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const newHeight = img.height * scale;
+        const newWidth = img.width * scale;
 
+        const offsetX = (canvas.width - newWidth) / 2;
+        const offsetY = (canvas.height - newHeight) / 2;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
+        frames.currentIndex = index;
+        console.log(`Image ${index} loaded`);
     }
 }
 
@@ -35,9 +52,8 @@ function preloadedImages() {
             imagesLoaded++;
             if (imagesLoaded === frames.maxIndex) {
                 console.log("All images loaded successfully");
-                console.log(images);
-
                 loadImages(frames.currentIndex);
+                startAnimation()
             }
         };
         images.push(img);
@@ -47,6 +63,32 @@ function preloadedImages() {
     }
 }
 
+function startAnimation() {
+    var tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#page",
+            start: "top top",
+            // end: "+=1000",
+            scrub: 2,
+            // pin: true,
+            // markers: true,
+        },
+        onComplete: () => {
+            console.log("Animation completed");
+        }
+    });
+
+    tl.to(frames, {
+        currentIndex: frames.maxIndex,
+        snap: "currentIndex",
+        duration: 1,
+        onUpdate: () => {
+            loadImages(Math.floor(frames.currentIndex));
+        },
+    })
+
+}
 export const imgs = () => {
     preloadedImages()
+
 }

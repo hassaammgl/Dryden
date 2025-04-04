@@ -47,6 +47,5 @@ revealToSpan()
 valueSetters()
 menuButton()
 imgs()
-console.log(imgs);
 
 
