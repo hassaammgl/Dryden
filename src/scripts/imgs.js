@@ -44,7 +44,7 @@ function loadImages(index) {
 
 function preloadedImages() {
     for (let i = 1; i <= frames.maxIndex; i++) {
-        const imgUrl = `/watch/watch-${i.toString().padStart(5, "0")}.png`;
+        const imgUrl = `/watch/black-watch-${i.toString().padStart(5, "0")}.png`;
         console.log(imgUrl);
         const img = new Image();
         img.src = imgUrl;
@@ -86,15 +86,6 @@ function startAnimation() {
         },
     })
 
-    tl.to("#page1", {
-        start: "bottom 50%",
-        opacity: 1,
-        y: "0%",
-        ease: "power2.inOut",
-        onComplete: () => {
-            console.log("Page 1 animation completed");
-        }
-    }, "<");
 }
 export const imgs = () => {
     preloadedImages()
