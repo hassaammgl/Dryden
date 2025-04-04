@@ -17,6 +17,10 @@ function valueSetters() {
         opacity: 0,
         color: "black",
     })
+    gsap.set("#page1", {
+        opacity: 0,
+        y: "100%",
+    })
 }
 
 function revealToSpan() {

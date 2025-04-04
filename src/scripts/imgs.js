@@ -68,10 +68,8 @@ function startAnimation() {
         scrollTrigger: {
             trigger: "#page",
             start: "top top",
-            // end: "+=1000",
             scrub: 2,
-            // pin: true,
-            // markers: true,
+            pin: true,
         },
         onComplete: () => {
             console.log("Animation completed");
@@ -84,11 +82,41 @@ function startAnimation() {
         duration: 1,
         onUpdate: () => {
             loadImages(Math.floor(frames.currentIndex));
+
         },
     })
 
+    tl.to("#page1", {
+        start: "bottom 50%",
+        opacity: 1,
+        y: "0%",
+        ease: "power2.inOut",
+        onComplete: () => {
+            console.log("Page 1 animation completed");
+        }
+    }, "<");
 }
 export const imgs = () => {
     preloadedImages()
 
 }
+
+// function animateFirstPage() {
+//     const tl = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: "#page",
+//             start: "top top",
+//             scrub: 2,
+//             pin: true,
+//         },
+//     });
+
+//     tl.to(frames, {
+//         currentIndex: frames.maxIndex,
+//         snap: "currentIndex",
+//         duration: 1,
+//         onUpdate: () => {
+//             loadImages(Math.floor(frames.currentIndex));
+//         },
+//     });
+// }

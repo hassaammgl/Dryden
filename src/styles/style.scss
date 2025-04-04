@@ -59,7 +59,7 @@ html,
 body {
 	width: 100%;
 	height: 100%;
-	background-color: black;
+	// background-color: black;
 }
 
 #main {
@@ -138,10 +138,10 @@ body {
 #page {
 	width: 100%;
 	height: 700vh;
-	background: red;
 	position: relative;
 	top: 0%;
 	left: 0;
+	z-index: -1;
 }
 
 #content {
@@ -150,7 +150,6 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1;
 }
 
 #canvas {
@@ -160,4 +159,22 @@ body {
 	top: 0;
 	left: 0;
 	z-index: -1;
+}
+
+#page1{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	> h1 {
+		font-family: $font-playfair-display;
+		color: antiquewhite;
+		font-size: 5rem;
+	}
 }
